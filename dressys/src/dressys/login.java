@@ -5,7 +5,12 @@
  */
 package dressys;
 
+import frames.principal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -47,10 +52,10 @@ public class login extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         txtUser = new javax.swing.JComboBox<>();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +65,7 @@ public class login extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+            .addGap(0, 437, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,23 +217,12 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Usuario:");
 
         jLabel2.setText("Contraseña:");
-
-        txtPass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtPassMouseClicked(evt);
-            }
-        });
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
 
         jCheckBox1.setText("Recordar");
 
@@ -241,6 +235,8 @@ public class login extends javax.swing.JFrame {
 
         txtUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARLA", "CHRISTIAN" }));
 
+        txtPass.setText("jPasswordField1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -251,8 +247,7 @@ public class login extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jCheckBox1)
@@ -260,7 +255,10 @@ public class login extends javax.swing.JFrame {
                         .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -274,9 +272,9 @@ public class login extends javax.swing.JFrame {
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jButton1))
@@ -360,14 +358,6 @@ public class login extends javax.swing.JFrame {
         verifiqueCuenta();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        txtPass.selectAll();
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void txtPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseClicked
-       txtPass.selectAll();
-    }//GEN-LAST:event_txtPassMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -395,11 +385,16 @@ public class login extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             }
+            new login().setVisible(true);
         });
     }
 
@@ -423,17 +418,20 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JComboBox<String> txtUser;
     // End of variables declaration//GEN-END:variables
 
     private void verifiqueCuenta() {
         String user, pass;
         user = txtUser.getSelectedItem().toString();
-        pass = txtPass.getText();
+        String Pass = null;
+        char[] Password = txtPass.getPassword();
+        Pass = new String(Password);
         
-        if(user.equals("CARLA") && pass.equals("1234")){
-            JOptionPane.showMessageDialog(null,"PUEDES ACCEDER AL SISTEMA");
+        if(user.equals("CARLA") && Pass.equals("1234")){
+            new principal().setVisible(true);
+            this.dispose();
         }
         else{
             JOptionPane.showMessageDialog(null,"LO SIENTO USUARIO O CONTRASEÑA INCORRECTO");
@@ -441,7 +439,7 @@ public class login extends javax.swing.JFrame {
     }
 
     private void escriba(String valor) {
-        String anterior = txtPass.getText();
-        txtPass.setText(anterior + valor);
+      //  String anterior = txtPass.getText();
+      //  txtPass.setText(anterior + valor);
     }
 }

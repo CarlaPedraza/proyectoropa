@@ -56,7 +56,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="412" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="437" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -83,7 +83,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPass" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -95,6 +94,10 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtUser" min="-2" pref="144" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtPass" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -112,9 +115,9 @@
                   <Component id="txtUser" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txtPass" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -199,7 +202,7 @@
                           <Component id="jButton12" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="jButton13" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -314,12 +317,6 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPass">
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPassMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPassActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBox1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Recordar"/>
@@ -345,6 +342,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtPass">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
